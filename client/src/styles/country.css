@@ -1,7 +1,12 @@
 .box {
-  height: 50vh;
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  border-radius: 5px;
+  height: 70vh;
+  border-radius: 3px;
+  background-color: #ecf0f1;
+  padding: 35px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.country-select {
+  width: 70%;
+  margin: 0 auto;
 }

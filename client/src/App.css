@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  padding: 40px;
+  padding: 70px;
   width: 75%;
   margin: 0 auto;
 }
@@ -8,5 +8,5 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 20px;
+  grid-column-gap: 80px;
 }
