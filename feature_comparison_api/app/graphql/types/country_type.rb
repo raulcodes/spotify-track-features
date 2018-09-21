@@ -9,4 +9,5 @@ Types::CountryType = GraphQL::ObjectType.define do
   field :avg_acousticness, types.Float
   field :avg_energy, types.Float
   field :avg_valence, types.Float
+  field :date, types.String
 end

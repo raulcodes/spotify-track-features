@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_224323) do
+ActiveRecord::Schema.define(version: 2018_09_19_233143) do
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 2018_09_16_224323) do
     t.float "avg_energy"
     t.float "avg_valence"
     t.datetime "date"
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.string "name"
+    t.string "artist"
+    t.string "album"
+    t.string "lookup_id"
+    t.float "danceability"
+    t.float "acousticness"
+    t.float "energy"
+    t.float "valence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

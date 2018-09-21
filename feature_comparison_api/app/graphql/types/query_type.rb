@@ -15,4 +15,11 @@ Types::QueryType = GraphQL::ObjectType.define do
       Country.find_by(date: Date.today.to_s, name: args[:name])
     }
   end
+
+  field :country_yesterday, !Types::CountryType do
+    argument :name, types.String
+    resolve -> (obj, args, ctx) {
+      Country.find_by(date: Date.yesterday.to_s, name: args[:name])
+    }
+  end
 end
