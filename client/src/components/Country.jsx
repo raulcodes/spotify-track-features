@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/country.css';
 import Select from 'react-select';
+import { Circle } from 'rc-progress';
 
 class Country extends Component {
   constructor(props) {
@@ -61,20 +62,44 @@ class Country extends Component {
       { value: 'The United States', label: 'The United States' },
       { value: 'Mexico', label: 'Mexico' },
       { value: 'Spain', label: 'Spain' },
-      { value: 'UK', label: 'UK' }
+      { value: 'UK', label: 'UK' },
+      { value: 'Australia', label: 'Australia' },
+      { value: 'Argentina', label: 'Argentina' }
     ];
     const defaultOption = countries[this.state.name];
     const spotify_playlist = 'https://open.spotify.com/user/spotifycharts/playlist/'
 
     return(
       <div className="box">
-        <h3>The Top 50 tracks in the</h3>
+        <h3>The Top 50 tracks in</h3>
         <Select options={countries} placeholder={this.state.name} onChange={this.handleCountry} className="country-select" />
-        <h3>have a current:</h3>
-        <h4>Danceability of: <br />{this.state.avg_danceability}</h4>
-        <h4>Acousticness of: <br />{this.state.avg_acousticness}</h4>
-        <h4>Energy of: <br />{this.state.avg_energy}</h4>
-        <h4>Valence of: <br />{this.state.avg_valence}</h4>
+        <h3>have a current average</h3>
+        <div className="chart-grid">
+          <div className="chart-col">
+            <h4>Danceability of:</h4>
+            <div className="chart">
+              <Circle percent={Math.floor(this.state.avg_danceability*100)} strokeWidth="10" trailWidth="0" strokeColor="#240b36" className="circle-chart" />
+              <h3>{Math.floor(this.state.avg_danceability*100)}%</h3>
+            </div>
+            <h4>Acousticness of:</h4>
+            <div className="chart">
+              <Circle percent={Math.floor(this.state.avg_acousticness*100)} strokeWidth="10" trailWidth="0" strokeColor="#240b36" className="circle-chart" />
+              <h3>{Math.floor(this.state.avg_acousticness*100)}%</h3>
+            </div>
+          </div>
+          <div className="chart-col">
+            <h4>Energy of:</h4>
+            <div className="chart">
+              <Circle percent={Math.floor(this.state.avg_energy*100)} strokeWidth="10" trailWidth="0" strokeColor="#240b36" className="circle-chart" />
+              <h3>{Math.floor(this.state.avg_energy*100)}%</h3>
+            </div>
+            <h4>Valence of:</h4>
+            <div className="chart">
+              <Circle percent={Math.floor(this.state.avg_valence*100)} strokeWidth="10" trailWidth="0" strokeColor="#240b36" className="circle-chart" />
+              <h3 className="feature">{Math.floor(this.state.avg_valence*100)}%</h3>
+            </div>
+          </div>
+        </div>
         <a href={spotify_playlist + this.state.lookup_id} target="_blank">Check out the Playlist</a>
       </div>
     );
